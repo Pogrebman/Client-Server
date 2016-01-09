@@ -7,6 +7,8 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
+import dialog.Dialog;
+import frame.MainFrame;
 import main.Const;
 
 public class Client {
@@ -16,21 +18,21 @@ public class Client {
 
 	public Client() {
 		Scanner scan = new Scanner(System.in);
+		Dialog dialog2 = new Dialog("dialog2");
 
 		System.out.println("Введите IP для подключения к серверу.");
 		System.out.println("Формат: xxx.xxx.xxx.xxx");
 
-		String ip = scan.nextLine();
+		String ip = dialog2.inputValue;
 
 		try {
-
+			MainFrame frame = new MainFrame("main");
 			socket = new Socket(ip, Const.Port);
 			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			out = new PrintWriter(socket.getOutputStream(), true);
 
 			System.out.println("Введите свой ник:");
-			out.println(scan.nextLine());
-
+			out.println(dialog2.inputValue2);
 			Resender resend = new Resender();
 			resend.start();
 

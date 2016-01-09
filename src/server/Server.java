@@ -12,10 +12,11 @@ import java.util.Iterator;
 import java.util.List;
 
 import main.Const;
+import frame.MainFrame;
 
 
 public class Server {
-
+	MainFrame frame = new MainFrame("server");
 
 
 	private List<Connection> connections =
