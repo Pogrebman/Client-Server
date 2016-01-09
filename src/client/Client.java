@@ -20,9 +20,6 @@ public class Client {
 		Scanner scan = new Scanner(System.in);
 		Dialog dialog2 = new Dialog("dialog2");
 
-		System.out.println("Введите IP для подключения к серверу.");
-		System.out.println("Формат: xxx.xxx.xxx.xxx");
-
 		String ip = dialog2.inputValue;
 
 		try {
