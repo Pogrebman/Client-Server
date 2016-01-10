@@ -28,7 +28,6 @@ public class Client {
 			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			out = new PrintWriter(socket.getOutputStream(), true);
 
-			System.out.println("Введите свой ник:");
 			out.println(dialog2.inputValue2);
 			Resender resend = new Resender();
 			resend.start();
@@ -36,6 +35,7 @@ public class Client {
 			String str = "";
 			while (!str.equals("exit")) {
 				str = scan.nextLine();
+				frame.uLabel(str);
 				out.println(str);
 			}
 			resend.setStop();
